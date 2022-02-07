@@ -225,7 +225,7 @@
             var tag = parseInt(document.getElementById(type).value);
             if (tag + parseInt(delta) <= max && tag + parseInt(delta) >= min) {
                 document.getElementById(type).value = tag + parseInt(delta);
-                search();
+                search(num);
             }
         }
     </script>
