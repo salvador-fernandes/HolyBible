@@ -217,8 +217,11 @@
                     }
                     var chapter = parseInt(document.getElementById("chapter").value)-1;
                     var verse = parseInt(document.getElementById("verse").value)-1;
+
                     x = xmlDoc.getElementsByTagName("book");
+                    console.log(x)
                     y = x[id].getElementsByTagName("chapter");
+                    console.log(y)
                     document.getElementById("chapter").max = y.length;
                     maxChapter = y.length;
                     z = y[chapter].getElementsByTagName("verse");
@@ -229,7 +232,6 @@
                     if (z[verse]) {
                         value = z[verse].innerHTML;//.slice(1, -1)
                     }
-                    console.log()
                     document.getElementsByTagName("table")[0].querySelectorAll("th")[field].innerHTML = 
                     '<input type="text" class="btn" id="bible" list="bibles" value="'+bible+'" onchange="search(2)" style="float:right;text-align:right"/><br/>'+value;
 
@@ -254,7 +256,6 @@
                             break;
                         }
                     }
-                    console.log(i,bible,bibleurl)
                 }
                 loadXMLDoc(i,bible,bibleurl);
                 if(parseInt(num) == 2){
