@@ -114,7 +114,7 @@
     <div class="container my-1">
         <div class="container">
             <div class="btn btn-group btn-group-delta"><h2><u><span id="Heading"></span></u></h2></div>
-            <div class="btn-group" style="float: right !important;">
+            <div class="btn-group no-print" style="float: right !important;">
                 <button type="button" class="btn" onclick="downloadData()"><i class="bi bi-save"></i></button>
                 <button type="button" class="btn" onclick="printData()"><i class="bi bi-printer"></i></button>
             </div>
@@ -123,9 +123,7 @@
                 <tr>
                     <th></th>
                 </tr>
-                <tr>
-                    <th></th>
-                </tr>
+                
             </table>
         </div>
     </div>
@@ -277,17 +275,15 @@
             let csv_data = [];
             let rows = document.getElementsByTagName('tr');
             for (let i = 0; i < rows.length; i++) {
-            let cols = rows[i].querySelectorAll('td,th');
-            let csvrow = [];
-            for (let j = 0; j < cols.length; j++) {
-                csvrow.push(cols[j].innerHTML);
-            }
-            csv_data.push(csvrow.join(","));
+                let cols = rows[i].querySelectorAll('td,th');
+                for (let j = 0; j < cols.length; j++) {
+                    csv_data.push(cols[j].querySelectorAll("input")[0].value);
+                    csv_data.push(cols[j].innerText.replace(/^\s+|\s+$/g, ''));
+                }
+                csv_data.push("\n")
             }
             csv_data = csv_data.join('\n'); 
-            CSVFile = new Blob([csv_data], {
-            type: "text"
-            });
+            CSVFile = new Blob([csv_data], { type: "text" });
             let temp_link = document.createElement('a');
             temp_link.download = document.getElementById("Heading").innerHTML+".txt";
             let url = window.URL.createObjectURL(CSVFile);
