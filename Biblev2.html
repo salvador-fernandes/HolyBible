@@ -208,9 +208,7 @@
                     xmlDoc = parser.parseFromString(this.responseText, "text/xml");
                     console.log("New Search")
                     var book = document.getElementById("book").value;
-                    console.log(book)
                     var books = document.getElementById("books").querySelectorAll("option");
-
                     var id = 0;
                     for (let i = 0; i < books.length; i++) {
                         if (books[i].value == book) {
@@ -218,21 +216,20 @@
                             break;
                         }
                     }
-                    console.log(id)
                     var chapter = parseInt(document.getElementById("chapter").value)-1;
-                    console.log(chapter)
                     var verse = parseInt(document.getElementById("verse").value)-1;
-                    console.log(verse)
-                    x = xmlDoc.getElementsByTagName("book");
-                    console.log(x)
-                    y = x[id].getElementsByTagName("chapter");
-                    console.log(y)
-                    document.getElementById("chapter").max = y.length;
-                    maxChapter = y.length;
-                    z = y[chapter].getElementsByTagName("verse");
+                    x = xmlDoc.querySelector("book[number='"+(id+1)+"']");
+                    
+                    if(x){
+                        y = x.querySelectorAll("chapter");
+                        document.getElementById("chapter").max = y.length;
+                        maxChapter = y.length;
 
-                    document.getElementById("verse").max = z.length;
-                    maxVerse = z.length;
+                        z = y[chapter].getElementsByTagName("verse");
+                        document.getElementById("verse").max = z.length;
+                        maxVerse = z.length;
+                    }
+
                     value = "";
                     if (z[verse]) {
                         value = z[verse].innerHTML;//.slice(1, -1)
