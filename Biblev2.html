@@ -211,7 +211,7 @@
                     var book = document.getElementById("book").value;
                     var books = document.getElementById("books").querySelectorAll("option");
                     var id = 0;
-                    for (var i = 0; i < books.length; i++) {
+                    for (let i = 0; i < books.length; i++) {
                         if (books[i].value == book) {
                             id = i;
                             break;
@@ -250,14 +250,13 @@
                 if(table[i].querySelectorAll("input")[0]){
                     bible = table[i].querySelectorAll("input")[0].value;
                     var bibles = document.getElementById("bibles").querySelectorAll("option");                    
-                    for (var j = 0; j < bibles.length; j++) {
+                    for (let j = 0; j < bibles.length; j++) {
                         if (bibles[j].value == bible) {
-                            console.log("Herray")
-                            bibleurl = bibles[i].label;
+                            bibleurl = bibles[j].label;
                             break;
                         }
                     }
-                    console.log(bible,bibleurl)
+                    console.log(i,bible,bibleurl)
                 }
                 loadXMLDoc(i,bible,bibleurl);
                 if(parseInt(num) == 2){
