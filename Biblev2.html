@@ -219,7 +219,7 @@
                     var chapter = parseInt(document.getElementById("chapter").value)-1;
                     var verse = parseInt(document.getElementById("verse").value)-1;
                     x = xmlDoc.querySelector("book[number='"+(id+1)+"']");
-                    
+                    value = "";
                     if(x){
                         y = x.querySelectorAll("chapter");
                         document.getElementById("chapter").max = y.length;
@@ -228,12 +228,11 @@
                         z = y[chapter].getElementsByTagName("verse");
                         document.getElementById("verse").max = z.length;
                         maxVerse = z.length;
+                        if (z[verse]) {
+                            value = z[verse].innerHTML;//.slice(1, -1)
+                        }
                     }
 
-                    value = "";
-                    if (z[verse]) {
-                        value = z[verse].innerHTML;//.slice(1, -1)
-                    }
                     document.getElementsByTagName("table")[0].querySelectorAll("th")[field].innerHTML = 
                     '<input type="text" class="btn" id="bible" list="bibles" value="'+bible+'" onchange="search(2)" style="float:right;text-align:right"/><br/>'+value;
 
