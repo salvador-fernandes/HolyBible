@@ -15,6 +15,29 @@
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
+        .fab-container{
+            position:fixed;
+            bottom:50px;
+            right:50px;
+            cursor:pointer;
+        }
+        .iconbutton{
+            width:20px;
+            height:20px;
+            border-radius: 100%;
+            background: #888;
+        }
+        .button{
+            width:25px;
+            height:25px;
+            background:#888;
+        }
+        .iconbutton i{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height: 100%;
+        }
 
         @media print {
             .no-print, .no-print * {display: none;}
@@ -123,8 +146,10 @@
                 <tr>
                     <th></th>
                 </tr>
-                
             </table>
+        </div>
+        <div class="fab-container">
+            <button class="button iconbutton" onclick="addRow()"><i class="bi bi-plus"></i></button>
         </div>
     </div>
     <script>
@@ -200,6 +225,18 @@
             }
         }
 
+        function addRow(){
+            var table = document.getElementsByTagName("table")[0];
+            var tr = document.createElement("tr");
+            var th = document.createElement("th");
+            tr.appendChild(th);
+            table.appendChild(tr);
+            search(2)
+        }
+        function removeRow(event){
+            event.currentTarget.parentElement.parentElement.remove();
+        }
+
         function loadXMLDoc(field, bible, bibleurl) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
@@ -233,7 +270,9 @@
                     }
 
                     document.getElementsByTagName("table")[0].querySelectorAll("th")[field].innerHTML = 
-                    '<input type="text" class="btn" id="bible" list="bibles" value="'+bible+'" onchange="search(2)" style="float:right;text-align:right"/><br/>'+value;
+                    '<button type="button" class="btn" style="float:right;text-align:right" onclick="return removeRow(event);"><i class="bi bi-x"></i></button>'+
+                    '<input type="text" class="btn" id="bible" list="bibles" value="'+bible+'" onchange="search(2)" style="float:right;text-align:right"/>'+
+                    '<br/>'+value;
 
                     document.getElementById("Heading").innerHTML = book + " " + (chapter + 1) + " : " + (verse + 1);
                 }
