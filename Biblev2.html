@@ -206,7 +206,6 @@
                 if (this.readyState == 4 && this.status == 200) {
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(this.responseText, "text/xml");
-                    console.log("New Search")
                     var book = document.getElementById("book").value;
                     var books = document.getElementById("books").querySelectorAll("option");
                     var id = 0;
