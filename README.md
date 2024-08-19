@@ -1,7 +1,9 @@
 # Holy Bible
 
-## Direct Link
+[Usage Link](https://htmlpreview.github.io/?https://github.com/salvador-fernandes/Utilities/blob/main/EMI.html)
+```js
 https://htmlpreview.github.io/?https://github.com/salvador-fernandes/HolyBible/blob/main/HolyBible.html
+```
 
 ## Credits
 Thanks to the XML Data of over 100 Bibles by Beblia, this online version of the bible is created for direct use.  
