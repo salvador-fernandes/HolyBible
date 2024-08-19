@@ -1,339 +1,465 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Holy Bible</title>
-    <link rel="icon" type="image/x-icon" href="https://favicon.twenty.com/github.com" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://favicon.twenty.com/github.com"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <style>
-        html {
-            font-size: 14px;
-        }
-        .btn-group-delta, .btn-group-delta * {
-            padding-left: 0px !important;
-            padding-right: 0px !important;
-        }
-        .fab-container{
-            position:fixed;
-            bottom:50px;
-            right:50px;
-            cursor:pointer;
-        }
-        .iconbutton{
-            width:20px;
-            height:20px;
-            border-radius: 100%;
-            background: #888;
-        }
-        .button{
-            width:25px;
-            height:25px;
-            background:#888;
-        }
-        .iconbutton i{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            height: 100%;
-        }
+      html {
+        font-size: 14px;
+      }
+      .btn-group-delta,
+      .btn-group-delta * {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      .fab-container {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        cursor: pointer;
+      }
+      .iconbutton {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background: #888;
+      }
+      .button {
+        width: 25px;
+        height: 25px;
+        background: #888;
+      }
+      .iconbutton i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
 
-        @media print {
-            .no-print, .no-print * {display: none;}
+      @media print {
+        .no-print,
+        .no-print * {
+          display: none;
         }
+      }
     </style>
   </head>
   <body>
     <div class="container my-1 no-print">
-        <input type="text" class="btn" id="book" list="books" value="Genesis" onchange="search(2)" style="width: 140px;text-align: left"/>
-        <datalist id="books">
-            <option value="Genesis"></option>
-            <option value="Exodus"></option>
-            <option value="Leviticus"></option>
-            <option value="Numbers"></option>
-            <option value="Deuteronomy"></option>
-            <option value="Joshua"></option>
-            <option value="Judges"></option>
-            <option value="Ruth"></option>
-            <option value="1 Samuel"></option>
-            <option value="2 Samuel"></option>
-            <option value="1 Kings"></option>
-            <option value="2 Kings"></option>
-            <option value="1 Chronicles"></option>
-            <option value="2 Chronicles"></option>
-            <option value="Ezra"></option>
-            <option value="Nehemiah"></option>
-            <option value="Esther"></option>
-            <option value="Job"></option>
-            <option value="Psalms"></option>
-            <option value="Proverbs"></option>
-            <option value="Ecclesiastes"></option>
-            <option value="Song of Solomon"></option>
-            <option value="Isaiah"></option>
-            <option value="Jeremiah"></option>
-            <option value="Lamentations"></option>
-            <option value="Ezekiel"></option>
-            <option value="Daniel"></option>
-            <option value="Hosea"></option>
-            <option value="Joel"></option>
-            <option value="Amos"></option>
-            <option value="Obadiah"></option>
-            <option value="Jonah"></option>
-            <option value="Micah"></option>
-            <option value="Nahum"></option>
-            <option value="Habakkuk"></option>
-            <option value="Zephaniah"></option>
-            <option value="Haggai"></option>
-            <option value="Zechariah"></option>
-            <option value="Malachi"></option>
-            <option value="Matthew"></option>
-            <option value="Mark"></option>
-            <option value="Luke"></option>
-            <option value="John"></option>
-            <option value="Acts"></option>
-            <option value="Romans"></option>
-            <option value="1 Corinthians"></option>
-            <option value="2 Corinthians"></option>
-            <option value="Galatians"></option>
-            <option value="Ephesians"></option>
-            <option value="Philippians"></option>
-            <option value="Colossians"></option>
-            <option value="1 Thessalonians"></option>
-            <option value="2 Thessalonians"></option>
-            <option value="1 Timothy"></option>
-            <option value="2 Timothy"></option>
-            <option value="Titus"></option>
-            <option value="Philemon"></option>
-            <option value="Hebrews"></option>
-            <option value="James"></option>
-            <option value="1 Peter"></option>
-            <option value="2 Peter"></option>
-            <option value="1 John"></option>
-            <option value="2 John"></option>
-            <option value="3 John"></option>
-            <option value="Jude"></option>
-            <option value="Revelation"></option>
-        </datalist>
-        <div class="btn-group btn-group-delta">
-            <button type="button" class="btn" onclick="changeNumber(1,-1)" tabindex="-1"><i class="bi bi-dash-circle"></i></button>
-            <input type="text" class="btn" inputmode="numeric" style="width: 40px;" id="chapter" value="1" min="1" max="1" placeholder="Chapter" onchange="search(1)"/>
-            <button type="button" class="btn" onclick="changeNumber(1,1)" tabindex="-1"><i class="bi bi-plus-circle"></i></button>
-        </div>
-        <div class="btn-group btn-group-delta">
-            <button type="button" class="btn" onclick="changeNumber(0,-1)" tabindex="-1"><i class="bi bi-dash-circle"></i></button>
-            <input type="text" class="btn" inputmode="numeric" style="width: 40px;" id="verse" value="1" min="1" max="1" placeholder="Verse" onchange="search(0)"/>
-            <button type="button" class="btn" onclick="changeNumber(0,1)" tabindex="-1"><i class="bi bi-plus-circle"></i></button>
-        </div>
-        <!--<button type="button" class="btn" onclick="search()">Search <i class="bi bi-search"></i></button>-->
-        <div class="btn-group btn-group-delta" style="float: right !important;">
-            <button type="button" class="btn" onclick="changeFontSize(-0.5)" tabindex="-1"><i class="bi bi-sort-alpha-down"></i></button>
-            <button type="button" class="btn" onclick="changeFontSize(0.5)" tabindex="-1"><i class="bi bi-sort-alpha-up"></i></button>
-        </div>
-        <div class="btn-group" style="float: right !important;">
-            <button type="button" class="btn" onclick="theme()" value="&#128161;" tabindex="-1" ><i class="bi bi-lightbulb"></i></button>
-        </div>
+      <input
+        type="text"
+        class="btn"
+        id="book"
+        list="books"
+        value="Genesis"
+        onchange="search(2)"
+        style="width: 140px; text-align: left"
+      />
+      <datalist id="books">
+        <option value="Genesis"></option>
+        <option value="Exodus"></option>
+        <option value="Leviticus"></option>
+        <option value="Numbers"></option>
+        <option value="Deuteronomy"></option>
+        <option value="Joshua"></option>
+        <option value="Judges"></option>
+        <option value="Ruth"></option>
+        <option value="1 Samuel"></option>
+        <option value="2 Samuel"></option>
+        <option value="1 Kings"></option>
+        <option value="2 Kings"></option>
+        <option value="1 Chronicles"></option>
+        <option value="2 Chronicles"></option>
+        <option value="Ezra"></option>
+        <option value="Nehemiah"></option>
+        <option value="Esther"></option>
+        <option value="Job"></option>
+        <option value="Psalms"></option>
+        <option value="Proverbs"></option>
+        <option value="Ecclesiastes"></option>
+        <option value="Song of Solomon"></option>
+        <option value="Isaiah"></option>
+        <option value="Jeremiah"></option>
+        <option value="Lamentations"></option>
+        <option value="Ezekiel"></option>
+        <option value="Daniel"></option>
+        <option value="Hosea"></option>
+        <option value="Joel"></option>
+        <option value="Amos"></option>
+        <option value="Obadiah"></option>
+        <option value="Jonah"></option>
+        <option value="Micah"></option>
+        <option value="Nahum"></option>
+        <option value="Habakkuk"></option>
+        <option value="Zephaniah"></option>
+        <option value="Haggai"></option>
+        <option value="Zechariah"></option>
+        <option value="Malachi"></option>
+        <option value="Matthew"></option>
+        <option value="Mark"></option>
+        <option value="Luke"></option>
+        <option value="John"></option>
+        <option value="Acts"></option>
+        <option value="Romans"></option>
+        <option value="1 Corinthians"></option>
+        <option value="2 Corinthians"></option>
+        <option value="Galatians"></option>
+        <option value="Ephesians"></option>
+        <option value="Philippians"></option>
+        <option value="Colossians"></option>
+        <option value="1 Thessalonians"></option>
+        <option value="2 Thessalonians"></option>
+        <option value="1 Timothy"></option>
+        <option value="2 Timothy"></option>
+        <option value="Titus"></option>
+        <option value="Philemon"></option>
+        <option value="Hebrews"></option>
+        <option value="James"></option>
+        <option value="1 Peter"></option>
+        <option value="2 Peter"></option>
+        <option value="1 John"></option>
+        <option value="2 John"></option>
+        <option value="3 John"></option>
+        <option value="Jude"></option>
+        <option value="Revelation"></option>
+      </datalist>
+      <div class="btn-group btn-group-delta">
+        <button
+          type="button"
+          class="btn"
+          onclick="changeNumber(1,-1)"
+          tabindex="-1"
+        >
+          <i class="bi bi-dash-circle"></i>
+        </button>
+        <input
+          type="text"
+          class="btn"
+          inputmode="numeric"
+          style="width: 40px"
+          id="chapter"
+          value="1"
+          min="1"
+          max="1"
+          placeholder="Chapter"
+          onchange="search(1)"
+        />
+        <button
+          type="button"
+          class="btn"
+          onclick="changeNumber(1,1)"
+          tabindex="-1"
+        >
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+      <div class="btn-group btn-group-delta">
+        <button
+          type="button"
+          class="btn"
+          onclick="changeNumber(0,-1)"
+          tabindex="-1"
+        >
+          <i class="bi bi-dash-circle"></i>
+        </button>
+        <input
+          type="text"
+          class="btn"
+          inputmode="numeric"
+          style="width: 40px"
+          id="verse"
+          value="1"
+          min="1"
+          max="1"
+          placeholder="Verse"
+          onchange="search(0)"
+        />
+        <button
+          type="button"
+          class="btn"
+          onclick="changeNumber(0,1)"
+          tabindex="-1"
+        >
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+      <!--<button type="button" class="btn" onclick="search()">Search <i class="bi bi-search"></i></button>-->
+      <div class="btn-group btn-group-delta" style="float: right !important">
+        <button
+          type="button"
+          class="btn"
+          onclick="changeFontSize(-0.5)"
+          tabindex="-1"
+        >
+          <i class="bi bi-sort-alpha-down"></i>
+        </button>
+        <button
+          type="button"
+          class="btn"
+          onclick="changeFontSize(0.5)"
+          tabindex="-1"
+        >
+          <i class="bi bi-sort-alpha-up"></i>
+        </button>
+      </div>
+      <div class="btn-group" style="float: right !important">
+        <button
+          type="button"
+          class="btn"
+          onclick="theme()"
+          value="&#128161;"
+          tabindex="-1"
+        >
+          <i class="bi bi-lightbulb"></i>
+        </button>
+      </div>
     </div>
     <div class="container my-1">
-        <div class="container">
-            <div class="btn btn-group btn-group-delta"><h2><u><span id="Heading"></span></u></h2></div>
-            <div class="btn-group no-print" style="float: right !important;">
-                <button type="button" class="btn" onclick="downloadData()"><i class="bi bi-save"></i></button>
-                <button type="button" class="btn" onclick="printData()"><i class="bi bi-printer"></i></button>
-            </div>
-            <datalist id="bibles"></datalist>
-            <table style="font-size: 1.5em; width:100%; height: 85vh;">
-                <tr>
-                    <th></th>
-                </tr>
-            </table>
+      <div class="container">
+        <div class="btn btn-group btn-group-delta">
+          <h2>
+            <u><span id="Heading"></span></u>
+          </h2>
         </div>
-        <div class="fab-container no-print">
-            <button class="button iconbutton" onclick="addRow()"><i class="bi bi-plus"></i></button>
+        <div class="btn-group no-print" style="float: right !important">
+          <button type="button" class="btn" onclick="downloadData()">
+            <i class="bi bi-save"></i>
+          </button>
+          <button type="button" class="btn" onclick="printData()">
+            <i class="bi bi-printer"></i>
+          </button>
         </div>
+        <datalist id="bibles"></datalist>
+        <table style="font-size: 1.5em; width: 100%; height: 85vh">
+          <tr>
+            <th></th>
+          </tr>
+        </table>
+      </div>
+      <div class="fab-container no-print">
+        <button class="button iconbutton" onclick="addRow()">
+          <i class="bi bi-plus"></i>
+        </button>
+      </div>
     </div>
     <script>
-        async function fetchGitHubFiles() {
-            const url = `https://api.github.com/repos/Beblia/Holy-Bible-XML-Format/contents/`;
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                const data = await response.json();
-                const bibles = document.getElementById("bibles");
-                data.forEach(file => {
-                    const bible = document.createElement("option");
-                    var value = file.name
-                    if(value.endsWith(".xml")){
-                        value=value.replace(".xml","")
-                        bible.value=value;
-                        bible.label=file.download_url;
-                    }
-                    bibles.appendChild(bible);
-                });
-                return data;
-            } catch (error) {
-                console.error('Error fetching files:', error);
+      async function fetchGitHubFiles() {
+        const url = `https://api.github.com/repos/Beblia/Holy-Bible-XML-Format/contents/`;
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          const data = await response.json();
+          const bibles = document.getElementById("bibles");
+          data.forEach((file) => {
+            const bible = document.createElement("option");
+            var value = file.name;
+            if (value.endsWith(".xml")) {
+              value = value.replace(".xml", "");
+              bible.value = value;
+              bible.label = file.download_url;
             }
+            bibles.appendChild(bible);
+          });
+          return data;
+        } catch (error) {
+          console.error("Error fetching files:", error);
         }
-        fetchGitHubFiles()
+      }
+      fetchGitHubFiles();
 
-        function theme(){
-            if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
-                document.documentElement.setAttribute('data-bs-theme','light')
-            }
-            else {
-                document.documentElement.setAttribute('data-bs-theme','dark')
-            }
+      function theme() {
+        if (document.documentElement.getAttribute("data-bs-theme") == "dark") {
+          document.documentElement.setAttribute("data-bs-theme", "light");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
         }
+      }
 
-        var maxChapter = 1;
-        var maxVerse = 1;
-	    
-	    function changeFontSize(delta) {
-            var tags = document.querySelectorAll("table");
-            for (i = 0; i < tags.length; i++) {
-                if (tags[i].style.fontSize) {
-                    var s = parseFloat(tags[i].style.fontSize.replace("em", ""));
-                } else {
-                    var s = 1.5;
-                }
-                s += parseFloat(delta);
-                tags[i].style.fontSize = s + "em";
-            }
+      var maxChapter = 1;
+      var maxVerse = 1;
+
+      function changeFontSize(delta) {
+        var tags = document.querySelectorAll("table");
+        for (i = 0; i < tags.length; i++) {
+          if (tags[i].style.fontSize) {
+            var s = parseFloat(tags[i].style.fontSize.replace("em", ""));
+          } else {
+            var s = 1.5;
+          }
+          s += parseFloat(delta);
+          tags[i].style.fontSize = s + "em";
         }
+      }
 
-        function changeNumber(input, delta) {
-            var type = "";
-            var min = 1;
-            var max = 1;
-	        var num = 0;
-            if (input == 1) {
-                type = "chapter";
-                max = maxChapter;
-		    num = 1;
-            } else if (input == 0) {
-                type = "verse";
-                max = maxVerse;
-            }
-
-            var tag = parseInt(document.getElementById(type).value);
-            if (tag + parseInt(delta) <= max && tag + parseInt(delta) >= min) {
-                document.getElementById(type).value = tag + parseInt(delta);
-                search(num);
-            }
+      function changeNumber(input, delta) {
+        var type = "";
+        var min = 1;
+        var max = 1;
+        var num = 0;
+        if (input == 1) {
+          type = "chapter";
+          max = maxChapter;
+          num = 1;
+        } else if (input == 0) {
+          type = "verse";
+          max = maxVerse;
         }
 
-        function addRow(){
-            var table = document.getElementsByTagName("table")[0];
-            var tr = document.createElement("tr");
-            var th = document.createElement("th");
-            tr.appendChild(th);
-            table.appendChild(tr);
-            search(2)
+        var tag = parseInt(document.getElementById(type).value);
+        if (tag + parseInt(delta) <= max && tag + parseInt(delta) >= min) {
+          document.getElementById(type).value = tag + parseInt(delta);
+          search(num);
         }
-        function removeRow(event){
-            event.currentTarget.parentElement.parentElement.remove();
-        }
+      }
 
-        function loadXMLDoc(field, bible, bibleurl) {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    parser = new DOMParser();
-                    xmlDoc = parser.parseFromString(this.responseText, "text/xml");
-                    var book = document.getElementById("book").value;
-                    var books = document.getElementById("books").querySelectorAll("option");
-                    var id = 0;
-                    for (let i = 0; i < books.length; i++) {
-                        if (books[i].value == book) {
-                            id = i;
-                            break;
-                        }
-                    }
-                    var chapter = parseInt(document.getElementById("chapter").value)-1;
-                    var verse = parseInt(document.getElementById("verse").value)-1;
-                    x = xmlDoc.querySelector("book[number='"+(id+1)+"']");
-                    value = "";
-                    if(x){
-                        y = x.querySelectorAll("chapter");
-                        document.getElementById("chapter").max = y.length;
-                        maxChapter = y.length;
-
-                        z = y[chapter].getElementsByTagName("verse");
-                        document.getElementById("verse").max = z.length;
-                        maxVerse = z.length;
-                        if (z[verse]) {
-                            value = z[verse].innerHTML;
-                        }
-                    }
-
-                    document.getElementsByTagName("table")[0].querySelectorAll("th")[field].innerHTML = 
-                    '<button type="button" class="btn no-print" style="float:right;text-align:right" onclick="return removeRow(event);"><i class="bi bi-x"></i></button>'+
-                    '<input type="text" class="btn" id="bible" list="bibles" value="'+bible+'" onchange="search(2)" style="float:right;text-align:right"/>'+
-                    '<br/>'+value;
-
-                    document.getElementById("Heading").innerHTML = book + " " + (chapter + 1) + " : " + (verse + 1);
-                }
-            };
-            xmlhttp.open("GET", bibleurl, true);
-            xmlhttp.send();
-        }
-
-        function search(num) {
-            const table=document.getElementsByTagName("table")[0].querySelectorAll("th")
-            for(let i=0; i<table.length; i++){
-                var bible = "EnglishNIVBible";
-                var bibleurl = "https://raw.githubusercontent.com/Beblia/Holy-Bible-XML-Format/master/EnglishNIVBible.xml";
-                if(table[i].querySelectorAll("input")[0]){
-                    bible = table[i].querySelectorAll("input")[0].value;
-                    var bibles = document.getElementById("bibles").querySelectorAll("option");                    
-                    for (let j = 0; j < bibles.length; j++) {
-                        if (bibles[j].value == bible) {
-                            bibleurl = bibles[j].label;
-                            break;
-                        }
-                    }
-                }
-                loadXMLDoc(i,bible,bibleurl);
-                if(parseInt(num) == 2){
-                    document.getElementById("chapter").value = 1;
-                    document.getElementById("verse").value = 1;
-                }else if(parseInt(num) == 1){
-                    document.getElementById("verse").value = 1;
-                }	
-            }    
-        }
+      function addRow() {
+        var table = document.getElementsByTagName("table")[0];
+        var tr = document.createElement("tr");
+        var th = document.createElement("th");
+        tr.appendChild(th);
+        table.appendChild(tr);
         search(2);
+      }
+      function removeRow(event) {
+        event.currentTarget.parentElement.parentElement.remove();
+      }
 
-        function printData(){
-            window.print();
-        }
-
-        function downloadData() {
-            let csv_data = [];
-            let rows = document.getElementsByTagName('tr');
-            for (let i = 0; i < rows.length; i++) {
-                let cols = rows[i].querySelectorAll('td,th');
-                for (let j = 0; j < cols.length; j++) {
-                    csv_data.push(cols[j].querySelectorAll("input")[0].value);
-                    csv_data.push(cols[j].innerText.replace(/^\s+|\s+$/g, ''));
-                }
-                csv_data.push("\n")
+      function loadXMLDoc(field, bible, bibleurl) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+            var book = document.getElementById("book").value;
+            var books = document
+              .getElementById("books")
+              .querySelectorAll("option");
+            var id = 0;
+            for (let i = 0; i < books.length; i++) {
+              if (books[i].value == book) {
+                id = i;
+                break;
+              }
             }
-            csv_data = csv_data.join('\n'); 
-            CSVFile = new Blob([csv_data], { type: "text" });
-            let temp_link = document.createElement('a');
-            temp_link.download = document.getElementById("Heading").innerHTML+".txt";
-            let url = window.URL.createObjectURL(CSVFile);
-            temp_link.href = url;
-            temp_link.style.display = "none";
-            document.body.appendChild(temp_link);
-            temp_link.click();
-            document.body.removeChild(temp_link);
+            var chapter =
+              parseInt(document.getElementById("chapter").value) - 1;
+            var verse = parseInt(document.getElementById("verse").value) - 1;
+            x = xmlDoc.querySelector("book[number='" + (id + 1) + "']");
+            value = "";
+            if (x) {
+              y = x.querySelectorAll("chapter");
+              document.getElementById("chapter").max = y.length;
+              maxChapter = y.length;
+
+              z = y[chapter].getElementsByTagName("verse");
+              document.getElementById("verse").max = z.length;
+              maxVerse = z.length;
+              if (z[verse]) {
+                value = z[verse].innerHTML;
+              }
+            }
+
+            document.getElementsByTagName("table")[0].querySelectorAll("th")[
+              field
+            ].innerHTML =
+              '<button type="button" class="btn no-print" style="float:right;text-align:right" onclick="return removeRow(event);"><i class="bi bi-x"></i></button>' +
+              '<input type="text" class="btn" id="bible" list="bibles" value="' +
+              bible +
+              '" onchange="search(2)" style="float:right;text-align:right"/>' +
+              "<br/>" +
+              value;
+
+            document.getElementById("Heading").innerHTML =
+              book + " " + (chapter + 1) + " : " + (verse + 1);
+          }
+        };
+        xmlhttp.open("GET", bibleurl, true);
+        xmlhttp.send();
+      }
+
+      function search(num) {
+        const table = document
+          .getElementsByTagName("table")[0]
+          .querySelectorAll("th");
+        for (let i = 0; i < table.length; i++) {
+          var bible = "EnglishNIVBible";
+          var bibleurl =
+            "https://raw.githubusercontent.com/Beblia/Holy-Bible-XML-Format/master/EnglishNIVBible.xml";
+          if (table[i].querySelectorAll("input")[0]) {
+            bible = table[i].querySelectorAll("input")[0].value;
+            var bibles = document
+              .getElementById("bibles")
+              .querySelectorAll("option");
+            for (let j = 0; j < bibles.length; j++) {
+              if (bibles[j].value == bible) {
+                bibleurl = bibles[j].label;
+                break;
+              }
+            }
+          }
+          loadXMLDoc(i, bible, bibleurl);
+          if (parseInt(num) == 2) {
+            document.getElementById("chapter").value = 1;
+            document.getElementById("verse").value = 1;
+          } else if (parseInt(num) == 1) {
+            document.getElementById("verse").value = 1;
+          }
         }
+      }
+      search(2);
+
+      function printData() {
+        window.print();
+      }
+
+      function downloadData() {
+        let csv_data = [];
+        let rows = document.getElementsByTagName("tr");
+        for (let i = 0; i < rows.length; i++) {
+          let cols = rows[i].querySelectorAll("td,th");
+          for (let j = 0; j < cols.length; j++) {
+            csv_data.push(cols[j].querySelectorAll("input")[0].value);
+            csv_data.push(cols[j].innerText.replace(/^\s+|\s+$/g, ""));
+          }
+          csv_data.push("\n");
+        }
+        csv_data = csv_data.join("\n");
+        CSVFile = new Blob([csv_data], { type: "text" });
+        let temp_link = document.createElement("a");
+        temp_link.download =
+          document.getElementById("Heading").innerHTML + ".txt";
+        let url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+        temp_link.style.display = "none";
+        document.body.appendChild(temp_link);
+        temp_link.click();
+        document.body.removeChild(temp_link);
+      }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
