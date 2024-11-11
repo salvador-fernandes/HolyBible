@@ -1,6 +1,6 @@
 # Holy Bible
 
-[Usage Link](https://htmlpreview.github.io/?https://github.com/salvador-fernandes/Utilities/blob/main/EMI.html)
+[Usage Link](https://htmlpreview.github.io/?https://github.com/salvador-fernandes/HolyBible/blob/main/HolyBible.html)
 ```js
 https://htmlpreview.github.io/?https://github.com/salvador-fernandes/HolyBible/blob/main/HolyBible.html
 ```
