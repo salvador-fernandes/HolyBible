@@ -1,8 +1,8 @@
 # Holy Bible
 
-[Usage Link](https://htmlpreview.github.io/?https://github.com/salvador-fernandes/HolyBible/blob/main/HolyBible.html)
+[Usage Link](https://salvador-fernandes.github.io/HolyBible/HolyBible.html)
 ```js
-https://htmlpreview.github.io/?https://github.com/salvador-fernandes/HolyBible/blob/main/HolyBible.html
+https://salvador-fernandes.github.io/HolyBible/HolyBible.html
 ```
 
 ## Credits
